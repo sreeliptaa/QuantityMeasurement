@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class QuantityTest {
+
     @Test
     public void given0Feetand0Feet_SouldReturnEqual() {
         Feet feet1 = new Feet(0.0);
@@ -62,17 +63,34 @@ public class QuantityTest {
     }
 
     @Test
-    void givenReference0InchAnd1Inch_ShouldReturnNotEqual() {
+    public void givenReference0InchAnd1Inch_ShouldReturnNotEqual() {
         Inch inch1 = new Inch(0.0);
         Inch inch2 = new Inch(1.0);
         Assertions.assertNotEquals(inch1, inch2);
     }
 
     @Test
-    void givenType0InchAnd1Inch_ShouldReturnEqual() {
+    public void givenType0InchAnd1Inch_ShouldReturnEqual() {
         Inch inch1 = new Inch(0.0);
         Inch inch2 = new Inch(1.0);
         Assertions.assertEquals(inch1.getClass(), inch2.getClass());
     }
-    
+
+    @Test
+    public void given1FeetAnd12Inch_WhenCompared_ShouldReturnTrue() {
+        Feet feet1 = new Feet(1.0);
+        double actualResult = feet1.feetToInchConversion();
+        double expectedResult = 12;
+        Assertions.assertEquals(12, actualResult);
+    }
+
+    @Test
+    public void given2FeetAnd12Inch_WhenCompared_ShouldReturnEqual() {
+        Feet feet1 = new Feet(1.0);
+        double actualResult = feet1.feetToInchConversion();
+        double expectedResult = 12;
+        Assertions.assertEquals(12, actualResult);
+    }
+
+
 }
