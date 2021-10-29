@@ -7,11 +7,11 @@ public class Feet {
         this.value = value;
     }
 
-    public double feetToInchConversion(){
+    public double feetToInchConversion() {
         return value * 12;
     }
 
-    public double feetToYardConversion(){
+    public double feetToYardConversion() {
         return value / 3;
     }
 

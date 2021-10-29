@@ -1,7 +1,5 @@
 package com.quantitymeasurement;
 
-import java.util.Objects;
-
 public class Yard {
     private final double value;
 
@@ -11,6 +9,10 @@ public class Yard {
 
     public double yardToFeetConversion() {
         return value * 3;
+    }
+
+    public double yardToInchConversion() {
+        return value * 36;
     }
 
     @Override
