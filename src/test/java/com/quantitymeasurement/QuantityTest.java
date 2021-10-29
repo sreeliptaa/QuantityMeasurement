@@ -86,10 +86,18 @@ public class QuantityTest {
 
     @Test
     public void given2FeetAnd12Inch_WhenCompared_ShouldReturnEqual() {
-        Feet feet1 = new Feet(1.0);
-        double actualResult = feet1.feetToInchConversion();
+        Feet feet = new Feet(1.0);
+        double actualResult = feet.feetToInchConversion();
         double expectedResult = 12;
         Assertions.assertEquals(12, actualResult);
+    }
+
+    @Test
+    public void given3Feetand1Yard_WhenCompared_ShouldReturnEqual() {
+        Feet feet = new Feet(3.0);
+        double actualResult = feet.feetToYardConversion();
+        double expectedResult = 1;
+        Assertions.assertEquals(1, actualResult);
     }
 
 

@@ -11,6 +11,10 @@ public class Feet {
         return value * 12;
     }
 
+    public double feetToYardConversion(){
+        return value / 3;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
