@@ -92,5 +92,19 @@ public class QuantityTest {
         Assertions.assertNotEquals(actualResult, expectedResult);
     }
 
-    
+    @Test
+    public void given3Feetand1Yard_WhenCompared_ShouldReturnEqual() {
+        Feet feet = new Feet(3.0);
+        double actualResult = feet.feetToYardConversion();
+        double expectedResult = 1;
+        Assertions.assertEquals(actualResult, expectedResult );
+    }
+    @Test
+    public void given1Feetand1Yard_WhenCompared_ShouldReturnNotEqual() {
+       Feet feet = new Feet(1.0);
+        double actualResult = feet.feetToYardConversion();
+        double expectedResult = 1;
+        Assertions.assertNotEquals(actualResult, expectedResult );
+
+    }
 }
