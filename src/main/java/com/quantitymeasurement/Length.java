@@ -15,6 +15,7 @@ public class Length {
     private static final double YARD_TO_FEET = 3;
     private static final double FEET_TO_INCH = 12;
     private static final double YARD_TO_INCH = 36;
+    private static final double INCH_TO_CM = 2.5;
 
     private final Unit unit;
     private final double value;
@@ -46,6 +47,8 @@ public class Length {
             return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
         if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.CENTIMETER))
             return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
+            return Double.compare(this.value * INCH_TO_CM, that.value) == 0;
         return false;
 
     }
