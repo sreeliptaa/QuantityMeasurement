@@ -10,7 +10,7 @@ import java.util.Objects;
  */
 
 public class Length {
-    enum Unit {FEET, INCH, YARD}
+    enum Unit {FEET, INCH, YARD, CENTIMETER}
 
     private static final double YARD_TO_FEET = 3;
     private static final double FEET_TO_INCH = 12;
@@ -44,6 +44,8 @@ public class Length {
             return Double.compare(this.value, that.value * YARD_TO_INCH) == 0;
         if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
             return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
+        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.CENTIMETER))
+            return Double.compare(this.value, that.value) == 0;
         return false;
 
     }
