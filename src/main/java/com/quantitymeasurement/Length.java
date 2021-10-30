@@ -10,78 +10,42 @@ import java.util.Objects;
  */
 
 public class Length {
+    enum Unit {FEET, INCH, YARD}
+
+    private static final double YARD_TO_FEET = 3;
+    private static final double FEET_TO_INCH = 12;
+    private static final double YARD_TO_INCH = 36;
+
     private final Unit unit;
     private final double value;
 
-    public enum Unit {
-        FEET, INCH, YARD
-    }
 
     public Length(Unit unit, double value) {
         this.unit = unit;
         this.value = value;
     }
 
-    /**
-     * Purpose : This method is used to convert feet into inches
-     *
-     * @return : atual value
-     */
-    public double feetToInchConversion() {
-        return value * 12;
-    }
+    public boolean compare(Length that) {
+        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
+            return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value * FEET_TO_INCH, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.FEET))
+            return Double.compare(this.value, that.value * FEET_TO_INCH) == 0;
+        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.YARD))
+            return Double.compare(this.value, that.value) == 0;
+        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.YARD))
+            return Double.compare(this.value, that.value * YARD_TO_FEET) == 0;
+        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.FEET))
+            return Double.compare(this.value * YARD_TO_FEET, that.value) == 0;
+        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.YARD))
+            return Double.compare(this.value, that.value * YARD_TO_INCH) == 0;
+        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
+        return false;
 
-    /**
-     * Purpose : This method is used to convert feet into yard
-     *
-     * @return : atual value
-     */
-
-    public double feetToYardConversion() {
-        return value / 3;
-    }
-
-    /**
-     * Purpose : This method is used to convert inch into feet
-     *
-     * @return : atual value
-     */
-
-    public double inchToFeetConversion() {
-
-        return value / 12;
-    }
-
-    /**
-     * Purpose : This method is used to convert inch into yard
-     *
-     * @return : atual value
-     */
-    public double inchToYardConversion() {
-
-        return value / 36;
-    }
-
-    /**
-     * Purpose : This method is used to convert yard into feet
-     *
-     * @return : atual value
-     */
-
-    public double yardToFeetConversion() {
-
-        return value * 3;
-    }
-
-    /**
-     * Purpose : This method is used to convert yard into inch
-     *
-     * @return : atual value
-     */
-
-    public double yardToInchConversion() {
-
-        return value * 36;
     }
 
     @Override
@@ -91,5 +55,4 @@ public class Length {
         Length length = (Length) o;
         return Double.compare(length.value, value) == 0 && unit == length.unit;
     }
-
 }
