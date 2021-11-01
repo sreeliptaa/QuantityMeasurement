@@ -3,75 +3,28 @@ package com.quantitymeasurement;
 import java.util.Objects;
 
 /**
- * Purpose : To simulate Quantity Measurement System
- *
- * @author Sreelipta
- * @since 2021-10-30
+ * Purpose : To creating Interface which implements UnitMeasurement class
+ * and convert the feet,centimeter and yard into baseUnit that is Inch
  */
 
-public class Length {
-    enum Unit {FEET, INCH, YARD, CENTIMETER}
+public enum Length implements UnitMeasurement {
+    INCH(1), CENTIMETER(0.4), FEET(12), YARD(36);
 
-    private static final double YARD_TO_FEET = 3;
-    private static final double FEET_TO_INCH = 12;
-    private static final double YARD_TO_INCH = 36;
-    private static final double INCH_TO_CM = 2.5;
+    private final double conversionValue;
 
-    private final Unit unit;
-    private final double value;
-
-    public Length(Unit unit, double value) {
-        this.unit = unit;
-        this.value = value;
+    Length(double conversionValue) {
+        this.conversionValue = conversionValue;
     }
 
     /**
-     * Purpose : This method is used to compare the lengths
+     * Purpose : This method used to convert into base value
      *
-     * @param that : is taking the length
-     * @return the compared value
-     */
-
-    public boolean compare(Length that) {
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * FEET_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value, that.value * FEET_TO_INCH) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value * YARD_TO_FEET) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.FEET))
-            return Double.compare(this.value * YARD_TO_FEET, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.YARD))
-            return Double.compare(this.value, that.value * YARD_TO_INCH) == 0;
-        if (this.unit.equals(Unit.YARD) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value * YARD_TO_INCH, that.value) == 0;
-        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.CENTIMETER))
-            return Double.compare(this.value, that.value) == 0;
-        if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
-            return Double.compare(this.value * INCH_TO_CM, that.value) == 0;
-        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.INCH))
-            return Double.compare(this.value, that.value * INCH_TO_CM) == 0;
-        return false;
-
-    }
-
-    /**
-     * Purpose : To use equals method overriding the parent class to check equality
-     *
-     * @return the passing parameterised object is equal or not
+     * @param obj : this parameter takes unit length for conversion
+     * @return the conversion value
      */
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Length length = (Length) o;
-        return Double.compare(length.value, value) == 0 && unit == length.unit;
+    public double convertToBaseUnit(QuantityMeasurement obj) {
+        return obj.value * conversionValue;
     }
 }
