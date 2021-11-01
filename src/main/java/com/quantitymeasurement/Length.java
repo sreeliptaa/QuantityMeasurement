@@ -20,11 +20,17 @@ public class Length {
     private final Unit unit;
     private final double value;
 
-
     public Length(Unit unit, double value) {
         this.unit = unit;
         this.value = value;
     }
+
+    /**
+     * Purpose : This method is used to compare the lengths
+     *
+     * @param that : is taking the length
+     * @return the compared value
+     */
 
     public boolean compare(Length that) {
         if (this.unit.equals(Unit.FEET) && that.unit.equals(Unit.FEET))
@@ -49,9 +55,17 @@ public class Length {
             return Double.compare(this.value, that.value) == 0;
         if (this.unit.equals(Unit.INCH) && that.unit.equals(Unit.CENTIMETER))
             return Double.compare(this.value * INCH_TO_CM, that.value) == 0;
+        if (this.unit.equals(Unit.CENTIMETER) && that.unit.equals(Unit.INCH))
+            return Double.compare(this.value, that.value * INCH_TO_CM) == 0;
         return false;
 
     }
+
+    /**
+     * Purpose : To use equals method overriding the parent class to check equality
+     *
+     * @return the passing parameterised object is equal or not
+     */
 
     @Override
     public boolean equals(Object o) {

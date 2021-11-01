@@ -159,23 +159,23 @@ public class QuantityTest {
 
     @Test
     public void given0Centimeterand1Centimeter_ShouldReturnNotEqual() {
-        Length centimeter1 = new Length(Length.Unit.CENTIMETER,0.0);
-        Length centimeter2 = new Length(Length.Unit.CENTIMETER,1.0);
+        Length centimeter1 = new Length(Length.Unit.CENTIMETER, 0.0);
+        Length centimeter2 = new Length(Length.Unit.CENTIMETER, 1.0);
         boolean compareCheck = centimeter1.compare(centimeter2);
         Assertions.assertFalse(compareCheck);
     }
 
     @Test
     public void given0CentimeterandNullCentimeter_ShouldReturnNotEqual() {
-        Length centimeter1 = new Length(Length.Unit.CENTIMETER,0.0);
+        Length centimeter1 = new Length(Length.Unit.CENTIMETER, 0.0);
         Length centimeter2 = null;
         Assertions.assertNotEquals(centimeter1, centimeter2);
     }
 
     @Test
     public void given0Centimeterand1CentimeterFromRef_ShouldReturnNotEqual() {
-        Length centimeter1 = new Length(Length.Unit.CENTIMETER,0.0);
-        Length centimeter2 = new Length(Length.Unit.CENTIMETER,1.0);
+        Length centimeter1 = new Length(Length.Unit.CENTIMETER, 0.0);
+        Length centimeter2 = new Length(Length.Unit.CENTIMETER, 1.0);
         boolean compareCheck = centimeter1.compare(centimeter2);
         Assertions.assertFalse(compareCheck);
     }
@@ -185,6 +185,14 @@ public class QuantityTest {
         Length inch = new Length(Length.Unit.INCH, 2.0);
         Length centimeter = new Length(Length.Unit.CENTIMETER, 5.0);
         boolean compareCheck = inch.compare(centimeter);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given5CentimeterAnd2Inch_WhenCompared_ShouldReturnEqualLength() {
+        Length centimeter = new Length(Length.Unit.CENTIMETER, 5.0);
+        Length inch = new Length(Length.Unit.INCH, 2.0);
+        boolean compareCheck = centimeter.compare(inch);
         Assertions.assertTrue(compareCheck);
     }
 }
