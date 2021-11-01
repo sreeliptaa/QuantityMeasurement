@@ -30,6 +30,17 @@ public class QuantityMeasurement {
     }
 
     /**
+     * Purpose : This method is used for adding the given units
+     *
+     * @param : that , requiredUnit : The parameters are taking the unit length value and enum variables
+     * @return the sum value
+     */
+    public QuantityMeasurement sumOfUnit(QuantityMeasurement that, UnitMeasurement requiredUnit) {
+        double sumOfInput = this.unit.convertToBaseUnit(this) + that.unit.convertToBaseUnit(that);
+        return new QuantityMeasurement(requiredUnit, sumOfInput);
+    }
+
+    /**
      * Purpose : To override the equals() method for checking equality and values of two object references
      *
      * @param o : The parameter is taking Object class reference

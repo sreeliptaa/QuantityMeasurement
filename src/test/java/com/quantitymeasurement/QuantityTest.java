@@ -195,4 +195,40 @@ public class QuantityTest {
         boolean compareCheck = centimeter.compare(inch);
         Assertions.assertTrue(compareCheck);
     }
+
+    @Test
+    public void given2InchAnd2Inch_WhenAdded_ShouldReturn4Inch() {
+        QuantityMeasurement inch1 = new QuantityMeasurement(Length.INCH, 2.0);
+        QuantityMeasurement inch2 = new QuantityMeasurement(Length.INCH, 2.0);
+        QuantityMeasurement actualSum = inch1.sumOfUnit(inch2, Length.INCH);
+        QuantityMeasurement expectedSum = new QuantityMeasurement(Length.INCH, 4.0);
+        Assertions.assertEquals(expectedSum, actualSum);
+    }
+
+    @Test
+    public void given1FeetAnd2Inch_WhenAdded_ShouldReturn14Inch() {
+        QuantityMeasurement feet = new QuantityMeasurement(Length.FEET, 1.0);
+        QuantityMeasurement inch = new QuantityMeasurement(Length.INCH, 2.0);
+        QuantityMeasurement actualSum = feet.sumOfUnit(inch, Length.INCH);
+        QuantityMeasurement expectedSum = new QuantityMeasurement(Length.INCH, 14.0);
+        Assertions.assertEquals(expectedSum, actualSum);
+    }
+
+    @Test
+    public void given1FeetAnd1Feet_WhenAdded_ShouldReturn24Inch() {
+        QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 1.0);
+        QuantityMeasurement feet2 = new QuantityMeasurement(Length.FEET, 1.0);
+        QuantityMeasurement actualSum = feet1.sumOfUnit(feet2, Length.INCH);
+        QuantityMeasurement expectedSum = new QuantityMeasurement(Length.INCH, 24.0);
+        Assertions.assertEquals(expectedSum, actualSum);
+    }
+
+    @Test
+    public void given2InchAnd2Point5Centimeter_WhenAdded_ShouldReturn3Inch() {
+        QuantityMeasurement inch = new QuantityMeasurement(Length.INCH, 2.0);
+        QuantityMeasurement centimeter = new QuantityMeasurement(Length.CENTIMETER, 2.5);
+        QuantityMeasurement actualSum = inch.sumOfUnit(centimeter, Length.INCH);
+        QuantityMeasurement expectedSum = new QuantityMeasurement(Length.INCH, 3.0);
+        Assertions.assertEquals(expectedSum, actualSum);
+    }
 }
