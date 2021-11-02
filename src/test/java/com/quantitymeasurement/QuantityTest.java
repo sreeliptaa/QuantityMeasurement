@@ -316,4 +316,21 @@ public class QuantityTest {
         Assertions.assertNotEquals(millilitre1, millilitre2);
     }
 
+    @Test
+    void given1GallonAnd3Point78Litre_WhenCompared_ShouldReturnEqualVolume() {
+        QuantityMeasurement gallon = new QuantityMeasurement(Volume.GALLON, 1.0);
+        QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 3.78);
+        boolean compareCheck = gallon.compare(litre);
+        Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    void given1LitreAnd1000Millilitre_WhenCompared_ShouldReturnEqualVolume() {
+        QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 1.0);
+        QuantityMeasurement millilitre = new QuantityMeasurement(Volume.MILLILITRE, 1000);
+        boolean compareCheck = litre.compare(millilitre);
+        Assertions.assertTrue(compareCheck);
+    }
+
+
 }
