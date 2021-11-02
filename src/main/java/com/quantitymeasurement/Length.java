@@ -3,8 +3,7 @@ package com.quantitymeasurement;
 import java.util.Objects;
 
 /**
- * Purpose : To creating Interface which implements UnitMeasurement class
- * and convert the feet,centimeter and yard into baseUnit that is Inch
+ * Purpose : To creating enums as instance variables which implements UnitMeasurement class
  */
 
 public enum Length implements UnitMeasurement {
