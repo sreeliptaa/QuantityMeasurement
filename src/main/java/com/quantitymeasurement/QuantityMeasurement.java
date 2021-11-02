@@ -32,7 +32,8 @@ public class QuantityMeasurement {
     /**
      * Purpose : This method is used for adding the given units
      *
-     * @param : that , requiredUnit : The parameters are taking the unit length value and enum variables
+     * @param that          : The parameters is taking the unit length value
+     * @param requiredUnit: The parameters is taking the enum variables
      * @return the sum value
      */
     public QuantityMeasurement sumOfUnit(QuantityMeasurement that, UnitMeasurement requiredUnit) {

@@ -1,25 +1,22 @@
 package com.quantitymeasurement;
 
-import java.util.Objects;
-
 /**
- * Purpose : To creating Interface which implements UnitMeasurement class
- * and convert the feet,centimeter and yard into baseUnit that is Inch
+ * Purpose : To create Interface which implements UnitMeasurement class
  */
 
-public enum Length implements UnitMeasurement {
-    INCH(1), CENTIMETER(0.4), FEET(12), YARD(36);
+public enum Volume implements UnitMeasurement {
+    GALLON(3.78), LITRE(1.0), MILLILITRE(0.001);
 
     private final double conversionValue;
 
-    Length(double conversionValue) {
+    Volume(double conversionValue) {
         this.conversionValue = conversionValue;
     }
 
     /**
      * Purpose : This method used to convert into base value
      *
-     * @param quantityMeasurement : this parameter takes unit length for conversion
+     * @param quantityMeasurement : this parameter takes unit volume for conversion
      * @return the conversion value
      */
 

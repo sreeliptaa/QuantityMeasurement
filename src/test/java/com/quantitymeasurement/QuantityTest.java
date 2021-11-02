@@ -231,4 +231,88 @@ public class QuantityTest {
         QuantityMeasurement expectedSum = new QuantityMeasurement(Length.INCH, 3.0);
         Assertions.assertEquals(expectedSum, actualSum);
     }
+
+    @Test
+    public void given0GallonAnd0Gallon_ShouldReturnEqual() {
+        QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement gallon2 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        Assertions.assertEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void given0GallonAnd1Gallon_ShouldReturnNotEqual() {
+        QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement gallon2 = new QuantityMeasurement(Volume.GALLON, 1.0);
+        Assertions.assertNotEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void given0GallonAndNullGallon_ShouldReturnNotEqual() {
+        QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement gallon2 = null;
+        Assertions.assertNotEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void givenReference0GallonAnd1Gallon_ShouldReturnNotEqual() {
+        QuantityMeasurement gallon1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement gallon2 = new QuantityMeasurement(Volume.GALLON, 1.0);
+        Assertions.assertNotEquals(gallon1, gallon2);
+    }
+
+    @Test
+    public void given0LitreAnd0Litre_ShouldReturnEqual() {
+        QuantityMeasurement litre1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement litre2 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        Assertions.assertEquals(litre1, litre2);
+    }
+
+    @Test
+    public void given0LitreAnd1Litre_ShouldReturnNotEqual() {
+        QuantityMeasurement litre1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement litre2 = new QuantityMeasurement(Volume.GALLON, 1.0);
+        Assertions.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void given0LitreAndNullLitre_ShouldReturnNotEqual() {
+        QuantityMeasurement litre1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement litre2 = null;
+        Assertions.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void givenReference0LitreAnd1Litre_ShouldReturnNotEqual() {
+        QuantityMeasurement litre1 = new QuantityMeasurement(Volume.GALLON, 0.0);
+        QuantityMeasurement litre2 = new QuantityMeasurement(Volume.GALLON, 1.0);
+        Assertions.assertNotEquals(litre1, litre2);
+    }
+
+    @Test
+    public void given0MillilitreAnd0Millilitre_ShouldReturnEqual() {
+        QuantityMeasurement millilitre1 = new QuantityMeasurement(Volume.MILLILITRE, 0.0);
+        QuantityMeasurement millilitre2 = new QuantityMeasurement(Volume.MILLILITRE, 0.0);
+        Assertions.assertEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void given0MillilitreAnd1Millilitre_ShouldReturnNotEqual() {
+        QuantityMeasurement millilitre1 = new QuantityMeasurement(Volume.MILLILITRE, 0.0);
+        QuantityMeasurement millilitre2 = new QuantityMeasurement(Volume.MILLILITRE, 1.0);
+        Assertions.assertNotEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void given0MillilitreAndNullMillilitre_ShouldReturnNotEqual() {
+        QuantityMeasurement millilitre1 = new QuantityMeasurement(Volume.MILLILITRE, 0.0);
+        QuantityMeasurement millilitre2 = null;
+        Assertions.assertNotEquals(millilitre1, millilitre2);
+    }
+
+    @Test
+    public void givenReference0MillilitreAnd1Millilitre_ShouldReturnNotEqual() {
+        QuantityMeasurement millilitre1 = new QuantityMeasurement(Volume.MILLILITRE, 0.0);
+        QuantityMeasurement millilitre2 = new QuantityMeasurement(Volume.MILLILITRE, 1.0);
+        Assertions.assertNotEquals(millilitre1, millilitre2);
+    }
 }
