@@ -327,7 +327,7 @@ public class QuantityTest {
     @Test
     void given1LitreAnd1000Millilitre_WhenCompared_ShouldReturnEqualVolume() {
         QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 1.0);
-        QuantityMeasurement millilitre = new QuantityMeasurement(Volume.MILLILITRE, 1000);
+        QuantityMeasurement millilitre = new QuantityMeasurement(Volume.MILLILITRE, 1000.0);
         boolean compareCheck = litre.compare(millilitre);
         Assertions.assertTrue(compareCheck);
     }
@@ -342,7 +342,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void given1LitreAnd1000millilitre_WhenAdded_ShouldReturn2Litre() {
+    public void given1LitreAnd1000Millilitre_WhenAdded_ShouldReturn2Litre() {
         QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 1.0);
         QuantityMeasurement millilitre = new QuantityMeasurement(Volume.MILLILITRE, 1000.0);
         QuantityMeasurement expectedSum = new QuantityMeasurement(Volume.LITRE, 2.0);
@@ -437,7 +437,7 @@ public class QuantityTest {
     @Test
     public void given1KilogramAnd1000Gram_WhenCompared_ShouldReturnEqualWeight() {
         QuantityMeasurement kilogram = new QuantityMeasurement(Weight.KILOGRAM, 1.0);
-        QuantityMeasurement gram = new QuantityMeasurement(Weight.GRAM, 1000);
+        QuantityMeasurement gram = new QuantityMeasurement(Weight.GRAM, 1000.0);
         boolean compareCheck = kilogram.compare(gram);
         Assertions.assertTrue(compareCheck);
     }
@@ -445,9 +445,18 @@ public class QuantityTest {
     @Test
     public void given1TonneAnd1000Kilogram_WhenCompared_ShouldReturnEqualWeight() {
         QuantityMeasurement tonne = new QuantityMeasurement(Weight.TONNE, 1.0);
-        QuantityMeasurement kilogram = new QuantityMeasurement(Weight.KILOGRAM, 1000);
+        QuantityMeasurement kilogram = new QuantityMeasurement(Weight.KILOGRAM, 1000.0);
         boolean compareCheck = tonne.compare(kilogram);
         Assertions.assertTrue(compareCheck);
+    }
+
+    @Test
+    public void given1TonneAnd1000Gram_WhenAdded_ShouldReturn1001Kilogram() {
+        QuantityMeasurement tonne = new QuantityMeasurement(Weight.TONNE, 1.0);
+        QuantityMeasurement gram = new QuantityMeasurement(Weight.GRAM, 1000.0);
+        QuantityMeasurement expectedSum = new QuantityMeasurement(Weight.KILOGRAM, 1001.0);
+        QuantityMeasurement actualSum = tonne.sumOfUnit(gram, Weight.KILOGRAM);
+        Assertions.assertEquals(expectedSum, actualSum);
     }
 
 }
