@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class QuantityTest {
 
     @Test
-    public void given0Feetand0Feet_SouldReturnEqual() {
+    public void given0Feetand0Feet_ShouldReturnEqual() {
         QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 0.0);
         QuantityMeasurement feet2 = new QuantityMeasurement(Length.FEET, 0.0);
         Assertions.assertEquals(feet1, feet2);
@@ -317,7 +317,7 @@ public class QuantityTest {
     }
 
     @Test
-    void given1GallonAnd3Point78Litre_WhenCompared_ShouldReturnEqualVolume() {
+    public void given1GallonAnd3Point78Litre_WhenCompared_ShouldReturnEqualVolume() {
         QuantityMeasurement gallon = new QuantityMeasurement(Volume.GALLON, 1.0);
         QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 3.78);
         boolean compareCheck = gallon.compare(litre);
@@ -325,7 +325,7 @@ public class QuantityTest {
     }
 
     @Test
-    void given1LitreAnd1000Millilitre_WhenCompared_ShouldReturnEqualVolume() {
+    public void given1LitreAnd1000Millilitre_WhenCompared_ShouldReturnEqualVolume() {
         QuantityMeasurement litre = new QuantityMeasurement(Volume.LITRE, 1.0);
         QuantityMeasurement millilitre = new QuantityMeasurement(Volume.MILLILITRE, 1000.0);
         boolean compareCheck = litre.compare(millilitre);
@@ -459,4 +459,67 @@ public class QuantityTest {
         Assertions.assertEquals(expectedSum, actualSum);
     }
 
+    @Test
+    public void given0FahrenheitAnd0Fahrenheit_ShouldReturnEqual() {
+        QuantityMeasurement fahrenheit1 = new QuantityMeasurement(Temperature.FAHRENHEIT, 0.0);
+        QuantityMeasurement fahrenheit2 = new QuantityMeasurement(Temperature.FAHRENHEIT, 0.0);
+        Assertions.assertEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    public void given0FahrenheitAnd1Fahrenheit_ShouldReturnNotEqual() {
+        QuantityMeasurement fahrenheit1 = new QuantityMeasurement(Temperature.FAHRENHEIT, 0.0);
+        QuantityMeasurement fahrenheit2 = new QuantityMeasurement(Temperature.FAHRENHEIT, 1.0);
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    public void given0FahrenheitAndNullFahrenheit_ShouldReturnNotEqual() {
+        QuantityMeasurement fahrenheit1 = new QuantityMeasurement(Temperature.FAHRENHEIT, 0.0);
+        QuantityMeasurement fahrenheit2 = null;
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    public void givenReferenceFahrenheitAnd1Fahrenheit_ShouldReturnNotEqual() {
+        QuantityMeasurement fahrenheit1 = new QuantityMeasurement(Temperature.FAHRENHEIT, 0.0);
+        QuantityMeasurement fahrenheit2 = new QuantityMeasurement(Temperature.FAHRENHEIT, 1.0);
+        Assertions.assertNotEquals(fahrenheit1, fahrenheit2);
+    }
+
+    @Test
+    public void given0CelsiusAnd0Celsius_ShouldReturnEqual() {
+        QuantityMeasurement celsius1 = new QuantityMeasurement(Temperature.CELSIUS, 0.0);
+        QuantityMeasurement celsius2 = new QuantityMeasurement(Temperature.CELSIUS, 0.0);
+        Assertions.assertEquals(celsius1, celsius2);
+    }
+
+    @Test
+    public void given0CelsiusAnd1Celsius_ShouldReturnNotEqual() {
+        QuantityMeasurement celsius1 = new QuantityMeasurement(Temperature.CELSIUS, 0.0);
+        QuantityMeasurement celsius2 = new QuantityMeasurement(Temperature.CELSIUS, 1.0);
+        Assertions.assertNotEquals(celsius1, celsius2);
+    }
+
+    @Test
+    public void given0CelsiusAndNullCelsius_ShouldReturnNotEqual() {
+        QuantityMeasurement celsius1 = new QuantityMeasurement(Temperature.CELSIUS, 0.0);
+        QuantityMeasurement celsius2 = null;
+        Assertions.assertNotEquals(celsius1, celsius2);
+    }
+
+    @Test
+    public void givenReference0CelsiusAnd1Celsius_ShouldReturnNotEqual() {
+        QuantityMeasurement celsius1 = new QuantityMeasurement(Temperature.CELSIUS, 0.0);
+        QuantityMeasurement celsius2 = new QuantityMeasurement(Temperature.CELSIUS, 1.0);
+        Assertions.assertNotEquals(celsius1, celsius2);
+    }
+
+    @Test
+    public void given212FahrenheitAnd100Celsius_WhenCompared_ShouldReturnEqual() {
+        QuantityMeasurement fahrenheit = new QuantityMeasurement(Temperature.FAHRENHEIT, 212.0);
+        QuantityMeasurement celsius = new QuantityMeasurement(Temperature.CELSIUS, 100.0);
+        boolean compareCheck = fahrenheit.compare(celsius);
+        Assertions.assertTrue(compareCheck);
+    }
 }
