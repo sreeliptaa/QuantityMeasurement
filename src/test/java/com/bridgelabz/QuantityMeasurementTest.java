@@ -1,26 +1,26 @@
-package com.quantitymeasurement;
+package com.bridgelabz;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class QuantityTest {
+public class QuantityMeasurementTest {
 
     @Test
-    public void given0Feetand0Feet_ShouldReturnEqual() {
+    public void given0FeetAnd0Feet_ShouldReturnEqual() {
         QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 0.0);
         QuantityMeasurement feet2 = new QuantityMeasurement(Length.FEET, 0.0);
         Assertions.assertEquals(feet1, feet2);
     }
 
     @Test
-    public void given0Feetand1Feet_ShouldReturnNotEqual() {
+    public void given0FeetAnd1Feet_ShouldReturnNotEqual() {
         QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 0.0);
         QuantityMeasurement feet2 = new QuantityMeasurement(Length.FEET, 1.0);
         Assertions.assertNotEquals(feet1, feet2);
     }
 
     @Test
-    public void given0FeetandNullFeet_ShouldReturnNotEqual() {
+    public void given0FeetAndNullFeet_ShouldReturnNotEqual() {
         QuantityMeasurement feet1 = new QuantityMeasurement(Length.FEET, 0.0);
         QuantityMeasurement feet2 = null;
         Assertions.assertNotEquals(feet1, feet2);
@@ -101,7 +101,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void given3Feetand1Yard_WhenCompared_ShouldReturnEqual() {
+    public void given3FeetAnd1Yard_WhenCompared_ShouldReturnEqual() {
         QuantityMeasurement feet = new QuantityMeasurement(Length.FEET, 3.0);
         QuantityMeasurement yard = new QuantityMeasurement(Length.YARD, 1.0);
         boolean compareCheck = feet.compare(yard);
@@ -109,7 +109,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void given1Feetand1Yard_WhenCompared_ShouldReturnNotEqual() {
+    public void given1FeetAnd1Yard_WhenCompared_ShouldReturnNotEqual() {
         QuantityMeasurement feet = new QuantityMeasurement(Length.FEET, 1.0);
         QuantityMeasurement yard = new QuantityMeasurement(Length.YARD, 1.0);
         boolean compareCheck = feet.compare(yard);
@@ -158,7 +158,7 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0Centimeterand1Centimeter_ShouldReturnNotEqual() {
+    public void given0CentimeterAnd1Centimeter_ShouldReturnNotEqual() {
         QuantityMeasurement centimeter1 = new QuantityMeasurement(Length.CENTIMETER, 0.0);
         QuantityMeasurement centimeter2 = new QuantityMeasurement(Length.CENTIMETER, 1.0);
         boolean compareCheck = centimeter1.compare(centimeter2);
@@ -166,14 +166,14 @@ public class QuantityTest {
     }
 
     @Test
-    public void given0CentimeterandNullCentimeter_ShouldReturnNotEqual() {
+    public void given0CentimeterAndNullCentimeter_ShouldReturnNotEqual() {
         QuantityMeasurement centimeter1 = new QuantityMeasurement(Length.CENTIMETER, 0.0);
         QuantityMeasurement centimeter2 = null;
         Assertions.assertNotEquals(centimeter1, centimeter2);
     }
 
     @Test
-    public void given0Centimeterand1CentimeterFromRef_ShouldReturnNotEqual() {
+    public void given0CentimeterAnd1CentimeterFromRef_ShouldReturnNotEqual() {
         QuantityMeasurement centimeter1 = new QuantityMeasurement(Length.CENTIMETER, 0.0);
         QuantityMeasurement centimeter2 = new QuantityMeasurement(Length.CENTIMETER, 1.0);
         boolean compareCheck = centimeter1.compare(centimeter2);

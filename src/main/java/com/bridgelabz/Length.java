@@ -1,9 +1,11 @@
-package com.quantitymeasurement;
-
-import java.util.Objects;
+package com.bridgelabz;
 
 /**
  * Purpose : To creating enums as instance variables which implements UnitMeasurement class
+ *
+ * @author Sreelipta
+ * @version 11.0.11
+ * @since 2021-10-30
  */
 
 public enum Length implements UnitMeasurement {
@@ -11,8 +13,9 @@ public enum Length implements UnitMeasurement {
 
     private final double conversionValue;
 
-    Length(double conversionValue) {
-        this.conversionValue = conversionValue;
+    Length(double convertToBaseUnit) {
+
+        this.conversionValue = convertToBaseUnit;
     }
 
     /**

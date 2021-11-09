@@ -1,9 +1,10 @@
-package com.quantitymeasurement;
+package com.bridgelabz;
 
 /**
  * Purpose : To calculate Quantity Measurement System
  *
  * @author Sreelipta
+ * @version 11.0.11
  * @since 2021-10-30
  */
 
@@ -26,7 +27,8 @@ public class QuantityMeasurement {
     public boolean compare(QuantityMeasurement that) {
         if (this.unit.equals(that.unit))
             return this.equals(that);
-        return Double.compare(this.unit.convertToBaseUnit(this), that.unit.convertToBaseUnit(that)) == 0;
+        return Double.compare(this.unit.convertToBaseUnit(this),
+                that.unit.convertToBaseUnit(that)) == 0;
     }
 
     /**

@@ -1,7 +1,11 @@
-package com.quantitymeasurement;
+package com.bridgelabz;
 
 /**
  * Purpose : To create enums as instance variables which implements UnitMeasurement class
+ *
+ * @author Sreelipta
+ * @version 11.0.11
+ * @since 2021-10-30
  */
 
 public enum Volume implements UnitMeasurement {
@@ -9,8 +13,9 @@ public enum Volume implements UnitMeasurement {
 
     private final double conversionValue;
 
-    Volume(double conversionValue) {
-        this.conversionValue = conversionValue;
+    Volume(double convertToBaseUnit) {
+
+        this.conversionValue = convertToBaseUnit;
     }
 
     /**

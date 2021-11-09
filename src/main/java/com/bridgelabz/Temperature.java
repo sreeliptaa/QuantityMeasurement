@@ -1,13 +1,18 @@
-package com.quantitymeasurement;
+package com.bridgelabz;
 
 import java.util.function.Function;
 
 /**
  * Purpose : To creating enums as instance variables which implements UnitMeasurement class
+ *
+ * @author Sreelipta
+ * @version 11.0.11
+ * @since 2021-10-30
  */
 
 public enum Temperature implements UnitMeasurement {
     FAHRENHEIT(true), CELSIUS(false);
+
     final Function<Double, Double> degreeFahrenheitToCelsius = (Double degreeFahrenheit) ->
             (degreeFahrenheit - 32) * 5 / 9;
     final Function<Double, Double> degreeCelsiusToCelsius = (Double degreeCelsius) ->
